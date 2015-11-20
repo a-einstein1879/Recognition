@@ -1,0 +1,5 @@
+#include "opencvmex.hpp"
+
+using namespace cv;
+
+void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prh)
