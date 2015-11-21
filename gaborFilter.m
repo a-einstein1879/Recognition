@@ -1,4 +1,4 @@
-function [] = openImage(n, sigma, theta, lambda)
+function [] = gaborFilter(n, sigma, theta, lambda)
     imSize  = 200;
     neuronPicture = imread('D:\Research\recognition\ex3.jpg');
     neuronPicture = imresize(neuronPicture, [imSize imSize]);
