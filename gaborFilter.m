@@ -1,6 +1,6 @@
-function [] = gaborFilter(n, sigma, theta, lambda)
+function [] = gaborFilter(n, sigma, theta, lambda, path)
     imSize  = 200;
-    neuronPicture = imread('D:\Research\recognition\ex3.jpg');
+    neuronPicture = imread(path);
     neuronPicture = imresize(neuronPicture, [imSize imSize]);
     monochromeNeuronPicture = rgb2gray(neuronPicture);
 

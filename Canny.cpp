@@ -1,3 +1,6 @@
+///////////////////////////////////////////////////////////////////////////
+// Includes
+///////////////////////////////////////////////////////////////////////////
 #include "opencvmex.hpp"
 
 using namespace cv;
@@ -37,19 +40,18 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
 {  
 	// Check inputs to mex function
     checkInputs(nrhs, prhs);
-        
+    
     Mat src;
     ocvMxArrayToImage_uint8(prhs[0], src);
     
     Mat dst;
     dst.create(src.size(), src.type());
     
-    int edgeThresh = 1;
     int lowThreshold = 100;
-    int ratio = 3;
-    int kernel_size = 3;
+    int highThreshold = 150;
+    int kernel_size = 4;
 
-    Canny(src, dst, lowThreshold, lowThreshold * ratio, kernel_size);
+    Canny(src, dst, lowThreshold, highThreshold, kernel_size);
     
     // Put the data back into the output MATLAB array
     plhs[0] = ocvMxArrayFromImage_single(dst);
